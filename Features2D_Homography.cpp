@@ -71,5 +71,5 @@ int main()
     line( img_matches, scene_corners[3] + Point2f((float)img_object.cols, 0),
           scene_corners[0] + Point2f((float)img_object.cols, 0), Scalar( 0, 255, 0), 4 );
     //-- Show detected matches
-    cv::imwrite("sift_result.jpg", img_matches);
+    cv::imwrite("result.jpg", img_matches);
 }

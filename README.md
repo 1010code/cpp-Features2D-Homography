@@ -112,9 +112,13 @@ int main()
 
 
 - [Features2D + Homography to find a known object](https://docs.opencv.org/4.5.2/d7/dff/tutorial_feature_homography.html)
--[【OpenCV】OpenCV 4 下 SIFT、SURF的使用](https://blog.csdn.net/Gordon_Wei/article/details/88920411)
+- [【OpenCV】OpenCV 4 下 SIFT、SURF的使用](https://blog.csdn.net/Gordon_Wei/article/details/88920411)
+- [SIFT特徵和SURF特徵比較](https://www.yisu.com/zixun/588386.html)
 
 
+## 如何編譯程式
+### 方法一使用 Cmake
+參考以下指令透過 Cmake 建構專案。`CMakeLists.txt` 待編譯的檔案為 `Features2D_Homography.cpp`(第三行)。
 
 ```
 mkdir build
@@ -124,8 +128,20 @@ sudo make install
 sudo make
 ```
 
-## Reference
-- [SIFT特徵和SURF特徵比較](https://www.yisu.com/zixun/588386.html)
+### 方法二透過 g++ 編譯
+編譯 `Feature_Detection.cpp`：
+```
+g++ -o main Feature_Detection.cpp -I /usr/local/include/opencv4/ -L /usr/local/lib  -lopencv_features2d  -lopencv_imgcodecs -lopencv_core
+./main
+```
+
+編譯 `Features2D_Homography.cpp`：
+```
+g++ -o main Features2D_Homography.cpp -I /usr/local/include/opencv4/ -L /usr/local/lib  -lopencv_features2d -lopencv_xfeatures2d -lopencv_calib3d -lopencv_imgcodecs -lopencv_imgproc -lopencv_core
+./main
+```
+
+
 
 
 
@@ -133,7 +149,7 @@ sudo make
 ## 使用指令編譯程式
 
 ```
-g++ -o main main.cpp -I /usr/local/include/opencv4/ -L /usr/local/lib  -lopencv_features2d -lopencv_imgcodecs -lopencv_core
+g++ -o main main.cpp -I /usr/local/include/opencv4/ -L /usr/local/lib  -lopencv_features2d  -lopencv_imgcodecs -lopencv_core
 ```
 
 
