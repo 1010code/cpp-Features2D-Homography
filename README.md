@@ -23,10 +23,14 @@ unzip 4.5.2.zip
 cd opencv-4.5.2/
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D OPENCV_ENABLE_NONFREE=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -D WITH_GTK=ON ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D OPENCV_ENABLE_NONFREE=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -D WITH_GTK=ON -D CMAKE_INSTALL_PREFIX=/usr/local ..
 make
 sudo make install
+ldconfig
 ```
+
+## Reference
+- [Ubuntu 18.04 安裝 OpenCV 與建置 C++ 編譯環境](https://wenyuangg.github.io/posts/opencv/opencv-installation.html)
 
 
 ## Feature Detection 特徵提取
@@ -126,6 +130,7 @@ cd build
 sudo cmake -D CMAKE_INSTALL_PREFIX=/home/jovyan/project/cpp_opencv/ ..
 sudo make install
 sudo make
+./main
 ```
 
 ### 方法二透過 g++ 編譯
@@ -138,6 +143,12 @@ g++ -o main Feature_Detection.cpp -I /usr/local/include/opencv4/ -L /usr/local/l
 編譯 `Features2D_Homography.cpp`：
 ```
 g++ -o main Features2D_Homography.cpp -I /usr/local/include/opencv4/ -L /usr/local/lib  -lopencv_features2d -lopencv_xfeatures2d -lopencv_calib3d -lopencv_imgcodecs -lopencv_imgproc -lopencv_core
+./main
+```
+
+編譯 `Features2D_Homography_SIFT.cpp`：
+```
+g++ -o main Features2D_Homography_SIFT.cpp -I /usr/local/include/opencv4/ -L /usr/local/lib  -lopencv_features2d -lopencv_xfeatures2d -lopencv_calib3d -lopencv_imgcodecs -lopencv_imgproc -lopencv_core
 ./main
 ```
 

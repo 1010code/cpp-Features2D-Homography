@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/xfeatures2d.hpp>
+#include <opencv2/features2d.hpp>
 #include <iostream>
 using namespace cv;
 using namespace cv::xfeatures2d;
@@ -10,9 +11,9 @@ int main()
     Mat srcImage = imread("./images/target.jpg", 0);
 
 //     int numFeatures = 20; // 可以指定擷取特徵數量 create(numFeatures)
-//     Ptr<SIFT> dectector = SIFT::create();
-//     Ptr<SURF> dectector = SURF::create();
-    Ptr<ORB> dectector = ORB::create();
+    Ptr<SIFT> dectector = SIFT::create();
+//     Ptr<SURF> dectector = SURF::create(); // 使用 xfeatures2d
+//     Ptr<ORB> dectector = ORB::create();
 
     vector<KeyPoint> keypoints;
     dectector->detect(srcImage, keypoints, Mat());
